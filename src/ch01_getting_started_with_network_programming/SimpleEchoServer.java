@@ -12,8 +12,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
 
 public class SimpleEchoServer {
 
@@ -33,21 +31,21 @@ public class SimpleEchoServer {
 					System.out.println("Client request: " + inputLine);
 					out.println(inputLine);
 				}
-				// fucntional implementation
-				Supplier<String> socketInput = () -> {
-					try {
-						return br.readLine();
-					} catch (IOException ex) {
-						return null;
-					}
-				};
-
-				Stream<String> stream = Stream.generate(socketInput);
-				stream.map(s -> {
-					System.out.println("Client request: " + s);
-					out.println(s);
-					return s;
-				}).allMatch(s -> s != null);
+				// functional implementation
+//				Supplier<String> socketInput = () -> {
+//					try {
+//						return br.readLine();
+//					} catch (IOException ex) {
+//						return null;
+//					}
+//				};
+//
+//				Stream<String> stream = Stream.generate(socketInput);
+//				stream.map(s -> {
+//					System.out.println("Client request: " + s);
+//					out.println(s);
+//					return s;
+//				}).allMatch(s -> s != null);
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
