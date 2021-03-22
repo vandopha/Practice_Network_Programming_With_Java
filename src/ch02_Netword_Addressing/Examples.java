@@ -25,6 +25,8 @@ public class Examples {
 
 		creatingURIInstances();
 
+		UsingTheURLClass();
+
 	}
 
 	private static void creatingURIInstances() {
