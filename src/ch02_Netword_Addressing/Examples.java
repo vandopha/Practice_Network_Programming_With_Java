@@ -9,6 +9,8 @@ package ch02_Netword_Addressing;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.UnknownHostException;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -17,9 +19,72 @@ public class Examples {
 
 	public static void main(String... args) {
 
-//		usingTheNetworkInterfaceClass();
+		usingTheNetworkInterfaceClass();
 
 		gettingAMACAddress();
+
+		creatingURIInstances();
+
+	}
+
+	private static void creatingURIInstances() {
+
+		try {
+
+			// Creating URI instances
+			URI uri = new URI("https://www.packtpub.com/books/content/support");
+
+			uri = new URI("https://en.wikipedia.org/wiki/" + "URL_normalization#Normalization_process");
+
+			uri = new URI("https", "en.wikipedia.org", "/wiki/URL_normalization", "Normalization_process");
+
+			displayURI(uri);
+
+		} catch (URISyntaxException ex) {
+
+			ex.printStackTrace();
+
+		}
+
+	}
+
+	private static void displayURI(URI uri) {
+
+		System.out.println("URI Information");
+
+		System.out.println("getAuthority: " + uri.getAuthority());
+
+		System.out.println("getScheme: " + uri.getScheme());
+
+		System.out.println("getSchemeSpecificPart: " + uri.getSchemeSpecificPart());
+
+		System.out.println("getHost: " + uri.getHost());
+
+		System.out.println("getPath: " + uri.getPath());
+
+		System.out.println("getQuery: " + uri.getQuery());
+
+		System.out.println("getFragment: " + uri.getFragment());
+
+		System.out.println("getUserInfo: " + uri.getUserInfo());
+
+		System.out.println("normalize: " + uri.normalize());
+
+	}
+
+	private static void displayURL(URL url) {
+
+		System.out.println("URL: " + url);
+
+		System.out.printf("  Protocol: %-32s  Host: %-32s\n", url.getProtocol(), url.getHost());
+
+		System.out.printf("      Port: %-32d  Path: %-32s\n", url.getPort(), url.getPath());
+
+		System.out.printf(" Reference: %-32s  File: %-32s\n", url.getRef(), url.getFile());
+
+		System.out.printf(" Authority: %-32s Query: %-32s\n", url.getAuthority(), url.getQuery());
+
+		System.out.println(" User Info: " + url.getUserInfo());
 
 	}
 
