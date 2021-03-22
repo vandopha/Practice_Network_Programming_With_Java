@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 import javax.net.ssl.SSLSocketFactory;
 
-public class SSLSocketClient {
+public class p04_SSLSocketClient {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws Exception {

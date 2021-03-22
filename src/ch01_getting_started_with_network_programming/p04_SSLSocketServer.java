@@ -15,7 +15,7 @@ import java.net.Socket;
 
 import javax.net.ssl.SSLServerSocketFactory;
 
-public class SSLSocketServer {
+public class p04_SSLSocketServer {
 
 	@SuppressWarnings({ "unused", "resource" })
 	public static void main(String[] args) {

@@ -11,7 +11,7 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 
-public class MulticastClient {
+public class p02_MulticastClient {
 
 	public static void main(String[] args) {
 

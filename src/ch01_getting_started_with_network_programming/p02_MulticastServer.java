@@ -13,7 +13,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.Date;
 
-public class MulticastServer {
+public class p02_MulticastServer {
 
 	public static void main(String[] args) {
 

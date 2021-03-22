@@ -14,7 +14,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class SimpleEchoClient {
+public class p01_SimpleEchoClient {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {

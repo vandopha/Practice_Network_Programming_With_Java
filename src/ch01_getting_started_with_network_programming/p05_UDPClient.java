@@ -13,7 +13,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketTimeoutException;
 
-public class UDPClient {
+public class p05_UDPClient {
 
 	public static void main(String[] args) throws Exception {
 

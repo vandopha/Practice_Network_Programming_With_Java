@@ -15,12 +15,12 @@ import java.net.Socket;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-public class ThreadedServer implements Runnable {
+public class p03_ThreadedServer implements Runnable {
 
 	private static Socket clientSocket;
 
 	@SuppressWarnings("static-access")
-	public ThreadedServer(Socket clientSocket) {
+	public p03_ThreadedServer(Socket clientSocket) {
 
 		this.clientSocket = clientSocket;
 
@@ -38,7 +38,7 @@ public class ThreadedServer implements Runnable {
 
 				clientSocket = serverSocket.accept();
 
-				ThreadedServer threadedServer = new ThreadedServer(clientSocket);
+				p03_ThreadedServer threadedServer = new p03_ThreadedServer(clientSocket);
 
 				new Thread(threadedServer).start();
 
