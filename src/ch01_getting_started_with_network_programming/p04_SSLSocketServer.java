@@ -21,45 +21,25 @@ public class p04_SSLSocketServer {
 	public static void main(String[] args) {
 
 		try {
-
 			SSLServerSocketFactory ssf = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
-
 			ServerSocket serverSocket = new ServerSocket(8000);
-
 			System.out.println("SSL Server Socket Started");
-
 			try (Socket socket = serverSocket.accept();
-
 					PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-
 					BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-
 				System.out.println("Client socket created");
-
 				String line = null;
-
 				while ((line = br.readLine()) != null) {
-
 					System.out.println(line);
-
 					out.println(line);
-
 				}
-
 				br.close();
-
 				System.out.println("SSL Server Socket terminated");
-
 			} catch (IOException ex) {
-
 				ex.printStackTrace();
-
 			}
-
 		} catch (IOException e) {
-
 			e.printStackTrace();
-
 		}
 
 	}

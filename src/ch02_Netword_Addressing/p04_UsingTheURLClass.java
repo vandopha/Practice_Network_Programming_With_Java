@@ -24,14 +24,14 @@ public class p04_UsingTheURLClass {
 		try {
 			URL url;
 			url = new URL("https://packtpub.com/books/content/support");
-//			url = new URL("https://www.packtpub.com");
+			url = new URL("https://www.packtpub.com");
 			// The following Generates: java.net.MalformedURLException: no protocol:
 			// www.packtpub.com
-//			url = new URL("www.packtpub.com");
-//			url = new URL("http://pluto.jhuapl.edu/");
-//			url = new URL("http", "pluto.jhuapl.edu", 80, "News-Center/index.php");
-//			url = new URL("https://en.wikipedia.org/wiki/Uniform_resource_locator#Syntax");
-//			url = new URL("https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=url+syntax");
+			url = new URL("www.packtpub.com");
+			url = new URL("http://pluto.jhuapl.edu/");
+			url = new URL("http", "pluto.jhuapl.edu", 80, "News-Center/index.php");
+			url = new URL("https://en.wikipedia.org/wiki/Uniform_resource_locator#Syntax");
+			url = new URL("https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=url+syntax");
 			System.out.println();
 			displayURL(url);
 			System.out.println("getContent: " + url.getContent());

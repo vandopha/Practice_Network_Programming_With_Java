@@ -29,27 +29,16 @@ public class p03_ThreadedServer implements Runnable {
 	public static void main(String[] args) {
 
 		System.out.println("--- Threaded Echo Server ---");
-
 		try (ServerSocket serverSocket = new ServerSocket(6000)) {
-
 			while (true) {
-
 				System.out.println("Waiting for connection...");
-
 				clientSocket = serverSocket.accept();
-
 				p03_ThreadedServer threadedServer = new p03_ThreadedServer(clientSocket);
-
 				new Thread(threadedServer).start();
-
 			}
-
 		} catch (IOException e) {
-
 			e.printStackTrace();
-
 		}
-
 		System.out.println("Threaded Echo Server Terminating");
 
 	}
@@ -58,54 +47,33 @@ public class p03_ThreadedServer implements Runnable {
 	public void run() {
 
 		System.out.println("Connected to client using [" + Thread.currentThread() + "]");
-
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 				PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);) {
 
 			// traditional implementation
 //			String inputLine;
-
 //			while ((inputLine = bufferedReader.readLine()) != null) {
-
 //				System.out.println("Client request [" + Thread.currentThread() + "]:" + inputLine);
-
 //				out.println(inputLine);
-
 //			}
-
 //			System.out.println("Client [" + Thread.currentThread() + "] connection terminated");
 
 			// Functional implementation
 			Supplier<String> socketInput = () -> {
-
 				try {
-
 					return bufferedReader.readLine();
-
 				} catch (IOException ex) {
-
 					return null;
-
 				}
-
 			};
-
 			Stream<String> stream = Stream.generate(socketInput);
-
 			stream.map(s -> {
-
 				System.out.println("Client request: " + s);
-
 				out.println(s);
-
 				return s;
-
 			}).allMatch(s -> s != null);
-
 		} catch (IOException e) {
-
 			e.printStackTrace();
-
 		}
 
 	}
